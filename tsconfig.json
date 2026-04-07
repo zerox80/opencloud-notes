@@ -1,0 +1,16 @@
+{
+  "extends": "@opencloud-eu/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true,
+    "types": ["vite/client", "vitest/globals"]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "extension.d.ts",
+    "vite.config.ts"
+  ]
+}
