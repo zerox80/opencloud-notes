@@ -27,8 +27,8 @@ const props = defineProps<{
   label: string
   placeholder: string
   confirmText: string
-  onConfirm: (val: string) => void
-  onCancel: () => void
+  actionCallback: (val: string) => void
+  cancelCallback: () => void
 }>()
 
 const { closeModal } = useModals()
@@ -36,13 +36,13 @@ const internalValue = ref(props.defaultValue)
 
 const submit = () => {
   if (internalValue.value.trim()) {
-    props.onConfirm(internalValue.value.trim())
+    props.actionCallback(internalValue.value.trim())
     closeModal()
   }
 }
 
 const cancel = () => {
-  props.onCancel()
+  props.cancelCallback()
   closeModal()
 }
 </script>

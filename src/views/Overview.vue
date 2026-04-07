@@ -49,7 +49,7 @@
     </section>
 
     <section class="ext:mx-auto ext:mt-6 ext:grid ext:max-w-6xl ext:gap-4 md:ext:grid-cols-3">
-      <oc-card class="notes-overview__card">
+      <oc-card class="notes-overview__card bg-role-surface-container ext:border">
         <oc-icon name="book-open" fill-type="line" size="large" color="var(--oc-color-icon-notes)" />
         <h3 class="ext:mb-2 ext:mt-4">{{ $gettext('Structured notebooks') }}</h3>
         <p class="ext:my-0 notes-overview__muted">
@@ -61,7 +61,7 @@
         </p>
       </oc-card>
 
-      <oc-card class="notes-overview__card">
+      <oc-card class="notes-overview__card bg-role-surface-container ext:border">
         <oc-icon name="article" fill-type="line" size="large" color="var(--oc-color-role-primary, #2563eb)" />
         <h3 class="ext:mb-2 ext:mt-4">{{ $gettext('Markdown first') }}</h3>
         <p class="ext:my-0 notes-overview__muted">
@@ -73,7 +73,7 @@
         </p>
       </oc-card>
 
-      <oc-card class="notes-overview__card">
+      <oc-card class="notes-overview__card bg-role-surface-container ext:border">
         <oc-icon name="search" fill-type="line" size="large" color="var(--oc-color-role-primary, #2563eb)" />
         <h3 class="ext:mb-2 ext:mt-4">{{ $gettext('Fast retrieval') }}</h3>
         <p class="ext:my-0 notes-overview__muted">
@@ -100,35 +100,15 @@ const { $gettext } = useGettext()
 <style scoped>
 .notes-overview {
   background:
-    radial-gradient(circle at 10% 10%, rgba(37, 99, 235, 0.15), transparent 45%),
-    radial-gradient(circle at 90% 90%, rgba(139, 92, 246, 0.12), transparent 40%),
+    radial-gradient(circle at top left, rgba(244, 187, 68, 0.16), transparent 34%),
     linear-gradient(180deg, rgba(15, 23, 42, 0.02), transparent 36%);
 }
 
 .notes-overview__hero {
-  position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.15) 100%);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-  overflow: hidden;
-}
-
-.notes-overview__hero::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  pointer-events: none;
-}
-.notes-overview__hero:hover::before {
-  opacity: 1;
+  border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
+  background:
+    linear-gradient(135deg, rgba(244, 187, 68, 0.14), rgba(37, 99, 235, 0.04) 45%, transparent 72%),
+    var(--oc-color-role-surface-container, #ffffff);
 }
 
 .notes-overview__eyebrow {
@@ -137,18 +117,10 @@ const { $gettext } = useGettext()
   gap: 0.5rem;
   padding: 0.5rem 0.85rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
+  background: rgba(255, 255, 255, 0.78);
   font-size: 0.85rem;
   font-weight: 600;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.notes-overview__eyebrow:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1);
 }
 
 .notes-overview__lede,
@@ -158,19 +130,7 @@ const { $gettext } = useGettext()
 
 .notes-overview__aside,
 .notes-overview__card {
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2));
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-}
-
-.notes-overview__aside:hover,
-.notes-overview__card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.1);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
+  border-color: var(--oc-color-role-outline-variant, #d7dde5);
 }
 
 .notes-overview__label,
@@ -193,16 +153,8 @@ const { $gettext } = useGettext()
   gap: 0.45rem;
   padding: 1rem;
   border-radius: 1.1rem;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.notes-overview__stack-card:hover {
-  transform: translateY(-2px) scale(1.01);
-  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.08);
+  border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
+  background: rgba(255, 255, 255, 0.75);
 }
 
 .notes-overview__stack-card--nested {

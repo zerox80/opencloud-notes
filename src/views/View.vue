@@ -55,11 +55,11 @@
         </header>
 
         <div class="notes-workspace ext:grid ext:min-h-0 ext:flex-1 ext:gap-4 xl:ext:grid-cols-[24rem_minmax(0,1fr)]">
-          <oc-card class="notes-panel ext:min-h-0 ext:overflow-hidden">
+          <oc-card class="notes-panel bg-role-surface-container ext:border ext:min-h-0 ext:overflow-hidden">
             <TocWrapper class="ext:h-full" :filter-term="filterTerm" />
           </oc-card>
 
-          <oc-card class="notes-panel ext:min-h-0 ext:overflow-hidden">
+          <oc-card class="notes-panel bg-role-surface-container ext:border ext:min-h-0 ext:overflow-hidden">
             <div class="notes-editor ext:flex ext:h-full ext:flex-col">
               <div class="notes-editor__header ext:px-5 ext:py-4 md:ext:px-6">
                 <div class="ext:flex ext:flex-col ext:gap-4 md:ext:flex-row md:ext:items-start md:ext:justify-between">
@@ -280,25 +280,20 @@ onBeforeUnmount(() => {
 <style scoped>
 .notes-shell {
   background:
-    radial-gradient(circle at 10% 10%, rgba(37, 99, 235, 0.15), transparent 45%),
-    radial-gradient(circle at 90% 90%, rgba(139, 92, 246, 0.12), transparent 40%),
-    linear-gradient(180deg, rgba(15, 23, 42, 0.02), transparent 36%);
+    radial-gradient(circle at top left, rgba(244, 187, 68, 0.14), transparent 28%),
+    linear-gradient(180deg, rgba(15, 23, 42, 0.03), transparent 34%);
+}
+
+.notes-hero,
+.notes-panel {
+  border-color: var(--oc-color-role-outline-variant, #d7dde5);
 }
 
 .notes-hero {
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.15) 100%);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-}
-
-.notes-panel {
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2));
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  background:
+    linear-gradient(135deg, rgba(244, 187, 68, 0.16), rgba(37, 99, 235, 0.05) 42%, transparent 72%),
+    var(--oc-color-role-surface-container, #ffffff);
+  border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
 }
 
 .notes-hero__eyebrow,
@@ -308,18 +303,8 @@ onBeforeUnmount(() => {
   align-items: center;
   gap: 0.55rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-}
-
-.notes-stat-chip:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+  border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
+  background: rgba(255, 255, 255, 0.78);
 }
 
 .notes-hero__eyebrow {
@@ -347,11 +332,10 @@ onBeforeUnmount(() => {
 .notes-stat-chip--dirty,
 .notes-status-pill--dirty {
   background: rgba(244, 187, 68, 0.18);
-  border-color: rgba(244, 187, 68, 0.4);
 }
 
 .notes-editor__header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
 }
 
 .notes-editor__eyebrow {

@@ -21,8 +21,8 @@ export const useAskForResourceName = () => {
           label,
           placeholder: label,
           confirmText: $gettext('Create'),
-          onConfirm: (value: string) => resolve(value),
-          onCancel: () => resolve(null)
+          actionCallback: (value: string) => resolve(value),
+          cancelCallback: () => resolve(null)
         }),
         onCancel: () => resolve(null)
       })
