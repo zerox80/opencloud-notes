@@ -97,6 +97,7 @@ defineProps<{ applicationConfig: AppConfigObject }>()
 const { $gettext } = useGettext()
 </script>
 
+<style scoped>
 .notes-overview {
   background:
     radial-gradient(circle at 10% 10%, rgba(37, 99, 235, 0.15), transparent 45%),
