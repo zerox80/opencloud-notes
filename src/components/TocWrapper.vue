@@ -187,10 +187,19 @@ const openSearchResult = async (node: TocNode) => {
   min-width: 4.25rem;
   padding: 0.75rem;
   border-radius: 1.15rem;
-  border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
-  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
   font-size: 0.78rem;
   font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.notes-sidebar__count:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1);
 }
 
 .notes-sidebar__count-value {
@@ -207,23 +216,30 @@ const openSearchResult = async (node: TocNode) => {
   width: 100%;
   padding: 0.9rem 1rem;
   border-radius: 1rem;
-  border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
-  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
   text-align: left;
   transition:
-    border-color 120ms ease,
-    transform 120ms ease,
-    background-color 120ms ease;
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .notes-search-result:hover {
-  transform: translateY(-1px);
-  border-color: var(--oc-color-role-primary, #2563eb);
+  transform: translateY(-2px) scale(1.02);
+  border-color: rgba(37, 99, 235, 0.5);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.08);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
 }
 
 .notes-search-result--active {
-  background: rgba(244, 187, 68, 0.16);
-  border-color: rgba(244, 187, 68, 0.55);
+  background: linear-gradient(135deg, rgba(244, 187, 68, 0.25), rgba(244, 187, 68, 0.05));
+  border-color: rgba(244, 187, 68, 0.6);
+  box-shadow: 0 4px 15px rgba(244, 187, 68, 0.15);
 }
 
 .notes-search-result__icon {
@@ -267,12 +283,18 @@ const openSearchResult = async (node: TocNode) => {
   gap: 0.65rem;
   min-height: 10rem;
   border-radius: 1.25rem;
-  border: 1px dashed var(--oc-color-role-outline-variant, #d7dde5);
+  border: 2px dashed rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   padding: 1.5rem;
   text-align: center;
+  transition: all 0.3s ease;
 }
 
 .notes-root-dropzone--active {
   border-style: solid;
+  border-color: rgba(37, 99, 235, 0.5);
+  background: rgba(37, 99, 235, 0.05);
 }
 </style>
