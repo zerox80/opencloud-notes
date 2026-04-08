@@ -116,8 +116,8 @@ const getFileMenuSections = (node: TocNode): MenuSection[] => {
 }
 
 .note-row--active {
-  border-color: rgba(244, 187, 68, 0.48);
-  background: rgba(244, 187, 68, 0.14);
+  border-color: color-mix(in srgb, var(--oc-color-icon-notes, #f4bb44) 48%, transparent);
+  background: color-mix(in srgb, var(--oc-color-icon-notes, #f4bb44) 14%, transparent);
 }
 
 .note-row__button {
@@ -132,7 +132,7 @@ const getFileMenuSections = (node: TocNode): MenuSection[] => {
   height: 2rem;
   margin-right: 0.75rem;
   border-radius: 0.8rem;
-  background: rgba(244, 187, 68, 0.16);
+  background: color-mix(in srgb, var(--oc-color-icon-notes, #f4bb44) 16%, transparent);
   color: var(--oc-color-icon-notes);
 }
 
@@ -156,7 +156,7 @@ const getFileMenuSections = (node: TocNode): MenuSection[] => {
 
 .note-row__meta {
   font-size: 0.78rem;
-  color: var(--oc-color-role-on-surface-variant, rgba(15, 23, 42, 0.7));
+  color: var(--oc-color-role-on-surface-variant, color-mix(in srgb, var(--oc-color-role-on-surface, #0f172a) 70%, transparent));
 }
 
 .note-row__actions {
