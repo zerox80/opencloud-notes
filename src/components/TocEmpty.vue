@@ -42,11 +42,11 @@ const { hasWriteAccess } = storeToRefs(notebookStore)
   width: 3.75rem;
   height: 3.75rem;
   border-radius: 1.1rem;
-  background: color-mix(in srgb, var(--oc-color-icon-notes, #f4bb44) 16%, transparent);
+  background: rgb(from var(--oc-color-icon-notes, #f4bb44) r g b / 16%);
   color: var(--oc-color-icon-notes);
 }
 
 .notes-empty-state__copy {
-  color: var(--oc-color-role-on-surface-variant, color-mix(in srgb, var(--oc-color-role-on-surface, #0f172a) 70%, transparent));
+  color: var(--oc-color-role-on-surface-variant, rgb(from var(--oc-color-role-on-surface, #0f172a) r g b / 70%));
 }
 </style>
