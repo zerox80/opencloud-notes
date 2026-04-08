@@ -65,7 +65,7 @@ const message = computed(() => {
   border-radius: 1.6rem;
   border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
   background:
-    linear-gradient(135deg, color-mix(in srgb, var(--oc-color-icon-notes, #f4bb44) 12%, transparent), color-mix(in srgb, var(--oc-color-role-primary, #2563eb) 4%, transparent) 55%, transparent),
+    linear-gradient(135deg, rgb(from var(--oc-color-icon-notes, #f4bb44) r g b / 12%), rgb(from var(--oc-color-role-primary, #2563eb) r g b / 4%) 55%, transparent),
     var(--oc-color-role-surface, transparent);
 }
 
@@ -76,11 +76,11 @@ const message = computed(() => {
   width: 4rem;
   height: 4rem;
   border-radius: 1.2rem;
-  background: color-mix(in srgb, var(--oc-color-icon-notes, #f4bb44) 16%, transparent);
+  background: rgb(from var(--oc-color-icon-notes, #f4bb44) r g b / 16%);
   color: var(--oc-color-icon-notes);
 }
 
 .notes-empty__copy {
-  color: var(--oc-color-role-on-surface-variant, color-mix(in srgb, var(--oc-color-role-on-surface, #0f172a) 70%, transparent));
+  color: var(--oc-color-role-on-surface-variant, rgb(from var(--oc-color-role-on-surface, #0f172a) r g b / 70%));
 }
 </style>

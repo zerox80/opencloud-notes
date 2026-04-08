@@ -102,12 +102,12 @@ const folderNodes = computed(() => filterFoldersTree(tocNodes.value || []))
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--oc-color-role-on-surface-variant, color-mix(in srgb, var(--oc-color-role-on-surface, #0f172a) 70%, transparent));
+  color: var(--oc-color-role-on-surface-variant, rgb(from var(--oc-color-role-on-surface, #0f172a) r g b / 70%));
 }
 
 .notes-sidebar__copy {
   font-size: 0.85rem;
-  color: var(--oc-color-role-on-surface-variant, color-mix(in srgb, var(--oc-color-role-on-surface, #0f172a) 70%, transparent));
+  color: var(--oc-color-role-on-surface-variant, rgb(from var(--oc-color-role-on-surface, #0f172a) r g b / 70%));
 }
 
 .notes-root-dropzone {
@@ -118,12 +118,12 @@ const folderNodes = computed(() => filterFoldersTree(tocNodes.value || []))
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--oc-color-role-on-surface-variant, color-mix(in srgb, var(--oc-color-role-on-surface, #0f172a) 70%, transparent));
+  color: var(--oc-color-role-on-surface-variant, rgb(from var(--oc-color-role-on-surface, #0f172a) r g b / 70%));
   transition: all 120ms ease;
 }
 
 .notes-root-dropzone--active {
   border-color: var(--oc-color-role-primary, #2563eb);
-  background: color-mix(in srgb, var(--oc-color-role-primary, #2563eb) 5%, transparent);
+  background: rgb(from var(--oc-color-role-primary, #2563eb) r g b / 5%);
 }
 </style>

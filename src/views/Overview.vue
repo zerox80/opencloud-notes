@@ -101,8 +101,8 @@ const { $gettext } = useGettext()
 .notes-overview {
   min-height: 100%;
   background:
-    radial-gradient(circle at top left, color-mix(in srgb, var(--oc-color-icon-notes, #f4bb44) 16%, transparent), transparent 34%),
-    linear-gradient(180deg, color-mix(in srgb, var(--oc-color-role-on-surface, #0f172a) 2%, transparent), transparent 36%);
+    radial-gradient(circle at top left, rgb(from var(--oc-color-icon-notes, #f4bb44) r g b / 16%), transparent 34%),
+    linear-gradient(180deg, rgb(from var(--oc-color-role-on-surface, #0f172a) r g b / 2%), transparent 36%);
 }
 
 .notes-overview__hero-layout {
@@ -113,7 +113,7 @@ const { $gettext } = useGettext()
 .notes-overview__hero {
   border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
   background:
-    linear-gradient(135deg, color-mix(in srgb, var(--oc-color-icon-notes, #f4bb44) 8%, transparent), color-mix(in srgb, var(--oc-color-role-primary, #2563eb) 4%, transparent) 45%, transparent 72%),
+    linear-gradient(135deg, rgb(from var(--oc-color-icon-notes, #f4bb44) r g b / 8%), rgb(from var(--oc-color-role-primary, #2563eb) r g b / 4%) 45%, transparent 72%),
     var(--oc-color-role-surface, transparent);
 }
 
@@ -131,7 +131,7 @@ const { $gettext } = useGettext()
 
 .notes-overview__lede,
 .notes-overview__muted {
-  color: var(--oc-color-role-on-surface-variant, color-mix(in srgb, var(--oc-color-role-on-surface, #0f172a) 70%, transparent));
+  color: var(--oc-color-role-on-surface-variant, rgb(from var(--oc-color-role-on-surface, #0f172a) r g b / 70%));
 }
 
 .notes-overview__aside,

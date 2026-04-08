@@ -287,8 +287,8 @@ onBeforeUnmount(() => {
   min-height: 100%;
   overflow: auto;
   background:
-    radial-gradient(circle at top left, color-mix(in srgb, var(--oc-color-icon-notes, #f4bb44) 14%, transparent), transparent 28%),
-    linear-gradient(180deg, color-mix(in srgb, var(--oc-color-role-on-surface, #0f172a) 3%, transparent), transparent 34%);
+    radial-gradient(circle at top left, rgb(from var(--oc-color-icon-notes, #f4bb44) r g b / 14%), transparent 28%),
+    linear-gradient(180deg, rgb(from var(--oc-color-role-on-surface, #0f172a) r g b / 3%), transparent 34%);
 }
 
 .notes-layout {
@@ -305,7 +305,7 @@ onBeforeUnmount(() => {
 
 .notes-hero {
   background:
-    linear-gradient(135deg, color-mix(in srgb, var(--oc-color-icon-notes, #f4bb44) 8%, transparent), color-mix(in srgb, var(--oc-color-role-primary, #2563eb) 5%, transparent) 42%, transparent 72%),
+    linear-gradient(135deg, rgb(from var(--oc-color-icon-notes, #f4bb44) r g b / 8%), rgb(from var(--oc-color-role-primary, #2563eb) r g b / 5%) 42%, transparent 72%),
     var(--oc-color-role-surface, transparent);
   border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
 }
