@@ -1,15 +1,20 @@
-# opencloud-notes
+# OpenCloud Notes
 
-Modern, file-native notes for OpenCloud.
+[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+[![OpenCloud Awesome](https://img.shields.io/badge/Awesome-OpenCloud_Apps-fc5185.svg)](https://github.com/opencloud-eu/awesome-apps)
 
-This repository contains a standalone OpenCloud web extension that turns `.ocnb` notebooks and Markdown pages into a focused notes workspace. It is based on the OpenCloud Notes app pattern, but packaged here as an independent project so you can build, release and deploy it without carrying the full `web-extensions` monorepo.
+Modern, file-native notes for OpenCloud. 
 
-## What it does
+This repository contains a standalone OpenCloud web extension that turns `.ocnb` notebooks and Markdown pages into a focused, distraction-free notes workspace. It is built to integrate natively into the OpenCloud Web app and operates entirely on your existing OpenCloud files—no separate proprietary database needed!
 
-- Treats each notebook as a `.ocnb` folder
-- Stores each page as a plain Markdown file
-- Loads directly into OpenCloud Web as an external app
-- Keeps deployment predictable because the server only serves static app assets
+> 📖 **Check out our full architecture and deployment guide in [documentation.md](documentation.md)**.
+
+## ✨ Features
+
+- **Standard formats:** Treats each notebook as a standard `.ocnb` folder.
+- **Markdown-native:** Stores each page as a plain `.md` file, preventing vendor lock-in.
+- **Seamless integration:** Loads directly into OpenCloud Web as an external, natively-integrated app.
+- **Simple hosting:** Keeps deployment predictable because the server only serves static app assets without a dedicated Node.js backend.
 
 ## Development
 
@@ -65,3 +70,11 @@ The included GitHub workflows run type checks, unit tests and build validation o
 ## Container image
 
 A minimal `Dockerfile` is included so the built extension can also be shipped as a static image later if you decide to mount or copy app assets through a Compose overlay.
+
+## 📄 License
+
+This software is released under the **[GNU Affero General Public License v3.0 (AGPL-3.0)](https://www.gnu.org/licenses/agpl-3.0)**. 
+Please refer to the `LICENSE` file for more details.
+
+---
+_Built for the OpenCloud web ecosystem. Explore more awesome applications at [opencloud-eu/awesome-apps](https://github.com/opencloud-eu/awesome-apps)._
