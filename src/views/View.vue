@@ -305,8 +305,8 @@ onBeforeUnmount(() => {
 
 .notes-hero {
   background:
-    linear-gradient(135deg, rgba(244, 187, 68, 0.16), rgba(37, 99, 235, 0.05) 42%, transparent 72%),
-    var(--oc-color-role-surface-container, #ffffff);
+    linear-gradient(135deg, rgba(244, 187, 68, 0.08), rgba(37, 99, 235, 0.05) 42%, transparent 72%),
+    var(--oc-color-role-surface, transparent);
   border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
 }
 

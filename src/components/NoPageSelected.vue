@@ -66,7 +66,7 @@ const message = computed(() => {
   border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
   background:
     linear-gradient(135deg, rgba(244, 187, 68, 0.12), rgba(37, 99, 235, 0.04) 55%, transparent),
-    var(--oc-color-role-surface, #ffffff);
+    var(--oc-color-role-surface, transparent);
 }
 
 .notes-empty__icon {
