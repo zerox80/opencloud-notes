@@ -69,7 +69,7 @@ import {
   useNotebookStore,
   useTocStore
 } from '../composables'
-import { getResourceLabel, getNotebookPathLabel, getNotesInFolder, searchNoteNodes } from '../util'
+import { getResourceLabel, getNotebookPathLabel, getNotesInFolder, searchNoteNodes, flattenTocNodes } from '../util'
 import { useRouter } from '@opencloud-eu/web-pkg'
 
 const props = defineProps<{
@@ -90,7 +90,12 @@ const documentStore = useDocumentStore()
 const folderStore = useFolderStore()
 const { onDragStart, onDragEnd } = useDragAndDrop()
 
-const { actions: actionsCreateNote } = useActionsCreateNote(folderStore.activeFolder || notebook.value)
+const activeParentNode = computed(() => {
+  if (!folderStore.activeFolder) return null
+  return flattenTocNodes(tocNodes.value || []).find((n) => n.resource.id === folderStore.activeFolder?.id) || null
+})
+
+const { actions: actionsCreateNote } = useActionsCreateNote(activeParentNode)
 const folderActions = computed(() => {
   const target = folderStore.activeFolder || notebook.value
   if (!target) return []

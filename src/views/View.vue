@@ -328,7 +328,7 @@ onBeforeUnmount(() => {
   gap: 0.55rem;
   border-radius: 999px;
   border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
-  background: rgba(255, 255, 255, 0.78);
+  background: var(--oc-color-role-surface-container, var(--oc-color-interaction-hover, rgba(128, 128, 128, 0.1)));
 }
 
 .notes-hero__eyebrow {

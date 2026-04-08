@@ -32,7 +32,7 @@ const { hasWriteAccess } = storeToRefs(notebookStore)
   padding: 1.25rem;
   border-radius: 1.4rem;
   border: 1px dashed var(--oc-color-role-outline-variant, #d7dde5);
-  background: rgba(255, 255, 255, 0.52);
+  background: var(--oc-color-role-surface-container, rgba(128, 128, 128, 0.1));
 }
 
 .notes-empty-state__icon {

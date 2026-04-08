@@ -124,7 +124,7 @@ const { $gettext } = useGettext()
   padding: 0.5rem 0.85rem;
   border-radius: 999px;
   border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
-  background: rgba(255, 255, 255, 0.78);
+  background: var(--oc-color-role-surface-container, var(--oc-color-interaction-hover, rgba(128, 128, 128, 0.1)));
   font-size: 0.85rem;
   font-weight: 600;
 }
@@ -160,7 +160,7 @@ const { $gettext } = useGettext()
   padding: 1rem;
   border-radius: 1.1rem;
   border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
-  background: rgba(255, 255, 255, 0.75);
+  background: var(--oc-color-role-surface-container, rgba(128, 128, 128, 0.1));
 }
 
 .notes-overview__stack-card--nested {

@@ -188,7 +188,7 @@ const openSearchResult = async (node: TocNode) => {
   padding: 0.75rem;
   border-radius: 1.15rem;
   border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
-  background: rgba(255, 255, 255, 0.76);
+  background: var(--oc-color-role-surface-container, rgba(128, 128, 128, 0.1));
   font-size: 0.78rem;
   font-weight: 600;
 }
@@ -208,7 +208,7 @@ const openSearchResult = async (node: TocNode) => {
   padding: 0.9rem 1rem;
   border-radius: 1rem;
   border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
-  background: rgba(255, 255, 255, 0.72);
+  background: var(--oc-color-role-surface-container, rgba(128, 128, 128, 0.1));
   text-align: left;
   transition:
     border-color 120ms ease,

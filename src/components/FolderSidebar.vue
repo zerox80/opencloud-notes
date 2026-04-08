@@ -76,7 +76,7 @@ const folderStore = useFolderStore()
 
 const { onDragOverRoot, onDragLeaveRoot, onDropOnRoot } = useDragAndDrop()
 
-const { actions } = useActionsCreateFolder(notebook.value)
+const { actions } = useActionsCreateFolder(null)
 const rootActions = computed(() => {
   if (!notebook.value) return []
   return actions.filter((a) => a.isVisible({ space: notebookStore.space, resources: [notebook.value!] }))

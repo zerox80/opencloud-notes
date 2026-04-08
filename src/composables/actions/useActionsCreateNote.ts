@@ -1,5 +1,6 @@
 import { TocNode } from '../../types'
 import { useGettext } from 'vue3-gettext'
+import { unref, Ref } from 'vue'
 import {
   FileAction,
   useClientService,
@@ -12,7 +13,7 @@ import { Resource, urlJoin } from '@opencloud-eu/web-client'
 import { useAskForResourceName } from '../useAskForResourceName'
 import { buildDocumentRoute } from './useActionsOpenDocument'
 
-export const useActionsCreateNote = (parentNode: TocNode) => {
+export const useActionsCreateNote = (parentNodeArg: TocNode | Ref<TocNode | null> | null) => {
   const { $gettext } = useGettext()
   const { webdav } = useClientService()
   const { showMessage, showErrorMessage } = useMessages()
@@ -24,6 +25,7 @@ export const useActionsCreateNote = (parentNode: TocNode) => {
   const tocStore = useTocStore()
 
   const getTargetFolderResource = (): Resource | null => {
+    const parentNode = unref(parentNodeArg)
     return parentNode?.resource?.isFolder ? parentNode.resource : notebookStore.notebook
   }
   const createNote = async () => {
@@ -51,7 +53,7 @@ export const useActionsCreateNote = (parentNode: TocNode) => {
       const newNode: TocNode = {
         resource
       }
-      tocStore.addTocNode(newNode, parentNode)
+      tocStore.addTocNode(newNode, unref(parentNodeArg) || undefined)
 
       await router.push(buildDocumentRoute(notebookStore.space, notebookStore.notebook, newNode))
     } catch (e) {
@@ -64,7 +66,7 @@ export const useActionsCreateNote = (parentNode: TocNode) => {
     {
       name: 'create-note',
       icon: 'sticky-note-add',
-      label: () => (parentNode ? $gettext('Create note in folder') : $gettext('Create note')),
+      label: () => (unref(parentNodeArg) ? $gettext('Create note in folder') : $gettext('Create note')),
       isVisible: () => {
         const parent = getTargetFolderResource()
         if (!parent) {

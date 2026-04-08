@@ -116,7 +116,7 @@ const itemCount = (node: TocNode) => {
 
 .toc-item-wrapper:hover {
   border-color: var(--oc-color-role-outline-variant, #d7dde5);
-  background: rgba(255, 255, 255, 0.68);
+  background: var(--oc-color-interaction-hover, rgba(128, 128, 128, 0.1));
 }
 
 .folder-row--drag-over {
