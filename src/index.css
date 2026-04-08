@@ -1,18 +1,10 @@
-/* Fallback CSS Variables for missing OpenCloud properties in Dark/Light Mode */
 :root {
-  --oc-color-role-surface-container: #ffffff;
-  --oc-color-role-surface: #ffffff;
-  --oc-color-role-outline-variant: #d7dde5;
-  --oc-color-role-on-surface-variant: rgba(15, 23, 42, 0.7);
-  --oc-color-interaction-hover: rgba(244, 187, 68, 0.16);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --oc-color-role-surface-container: #1e293b;
-    --oc-color-role-surface: #1e293b;
-    --oc-color-role-outline-variant: #334155;
-    --oc-color-role-on-surface-variant: rgba(220, 224, 231, 0.8);
-    --oc-color-interaction-hover: rgba(255, 255, 255, 0.1);
-  }
+  --oc-color-role-surface-container: var(--oc-role-surface-container, #f6f8fa);
+  --oc-color-role-surface: var(--oc-role-surface, #ffffff);
+  --oc-color-role-outline-variant: var(--oc-role-outline-variant, #bfc8cc);
+  --oc-color-role-outline: var(--oc-role-outline, #70787c);
+  --oc-color-role-primary: var(--oc-role-primary, #00677f);
+  --oc-color-role-on-surface-variant: var(--oc-role-on-surface-variant, #40484c);
+  --oc-color-role-on-surface: var(--oc-role-on-surface, #191c1d);
+  --oc-color-interaction-hover: var(--oc-role-surface-container-highest, rgba(128, 128, 128, 0.1));
 }
