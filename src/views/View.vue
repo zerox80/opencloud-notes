@@ -56,7 +56,11 @@
 
         <div class="notes-workspace">
           <oc-card class="notes-panel notes-panel--sidebar bg-role-surface-container ext:border">
-            <TocWrapper class="ext:h-full" :filter-term="filterTerm" />
+            <FolderSidebar class="ext:h-full" />
+          </oc-card>
+
+          <oc-card class="notes-panel notes-panel--middle bg-role-surface-container ext:border">
+            <NoteListSidebar class="ext:h-full" :filter-term="filterTerm" />
           </oc-card>
 
           <oc-card class="notes-panel notes-panel--editor bg-role-surface-container ext:border">
@@ -102,7 +106,8 @@
 
 <script setup lang="ts">
 import NoPageSelected from '../components/NoPageSelected.vue'
-import TocWrapper from '../components/TocWrapper.vue'
+import FolderSidebar from '../components/FolderSidebar.vue'
+import NoteListSidebar from '../components/NoteListSidebar.vue'
 import { extractNameWithoutExtension, Resource, SpaceResource } from '@opencloud-eu/web-client'
 import { computed, onBeforeUnmount, onMounted, ref, unref, watchEffect } from 'vue'
 import {
@@ -430,11 +435,12 @@ onBeforeUnmount(() => {
   .notes-workspace {
     flex: 1 1 auto;
     min-height: 0;
-    grid-template-columns: minmax(20rem, 24rem) minmax(0, 1fr);
+    grid-template-columns: minmax(14rem, 18rem) minmax(16rem, 22rem) minmax(0, 1fr);
     align-items: stretch;
   }
 
   .notes-panel--sidebar,
+  .notes-panel--middle,
   .notes-panel--editor {
     max-height: none;
     min-height: 0;

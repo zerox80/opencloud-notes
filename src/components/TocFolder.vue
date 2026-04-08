@@ -14,7 +14,7 @@
         appearance="raw"
         class="folder-row__button ext:w-full ext:text-left"
         justify-content="start"
-        @click="toggleNodeCollapse(node)"
+        @click="onFolderClick"
       >
         <span class="folder-row__chevron">
           <oc-icon :name="`arrow-${node.collapsed ? 'right' : 'down'}-s`" fill-type="line" />
@@ -23,7 +23,7 @@
           <oc-icon name="folder-2" fill-type="line" />
         </span>
         <span class="folder-row__copy">
-          <span class="folder-row__title">{{ node.resource.name }}</span>
+          <span class="folder-row__title" :class="{ 'ext:text-primary': folderStore.activeFolder?.id === node.resource.id }">{{ node.resource.name }}</span>
           <span class="folder-row__meta">{{ $gettext('%{count} items', { count: itemCount(node) }) }}</span>
         </span>
       </OcButton>
@@ -41,6 +41,7 @@ import {
   useActionsCreateFolder,
   useActionsCreateNote,
   useDragAndDrop,
+  useFolderStore,
   useNotebookStore,
   useTocStore
 } from '../composables'
@@ -61,7 +62,13 @@ const { $gettext } = useGettext()
 const tocStore = useTocStore()
 const { isDragOverNode, toggleNodeCollapse } = tocStore
 const notebookStore = useNotebookStore()
+const folderStore = useFolderStore()
 const { onDragOverFolder, onDragLeaveFolder, onDropOnFolder } = useDragAndDrop()
+
+const onFolderClick = () => {
+  folderStore.setActiveFolder(node.resource)
+  toggleNodeCollapse(node)
+}
 
 const { actions: actionsCreateFolder } = useActionsCreateFolder(unref(node))
 const { actions: actionsCreateNote } = useActionsCreateNote(unref(node))

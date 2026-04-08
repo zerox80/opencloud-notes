@@ -30,6 +30,24 @@ export const flattenTocNodes = (nodes: TocNode[] = []): TocNode[] => {
   ])
 }
 
+export const filterFoldersTree = (nodes: TocNode[] = []): TocNode[] => {
+  return nodes
+    .filter((node) => node.resource.isFolder)
+    .map((node) => ({
+      ...node,
+      children: node.children ? filterFoldersTree(node.children) : []
+    }))
+}
+
+export const getNotesInFolder = (nodes: TocNode[] = [], folderId: string | null): TocNode[] => {
+  if (!folderId) {
+    return nodes.filter((node) => !node.resource.isFolder)
+  }
+  const folderNode = flattenTocNodes(nodes).find((n) => n.resource.id === folderId)
+  if (!folderNode || !folderNode.children) return []
+  return folderNode.children.filter((n) => !n.resource.isFolder)
+}
+
 export const getNoteNodes = (nodes: TocNode[] = []) => {
   return flattenTocNodes(nodes).filter(({ resource }) => !resource.isFolder)
 }
