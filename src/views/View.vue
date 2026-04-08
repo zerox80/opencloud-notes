@@ -1,12 +1,12 @@
 <template>
-  <main class="notes-shell ext:h-full ext:overflow-hidden ext:p-4 md:ext:p-6">
+  <main class="notes-shell ext:min-h-full ext:p-4 md:ext:p-6">
     <AppLoadingSpinner v-if="isLoading" />
 
     <template v-else>
-      <section class="ext:flex ext:h-full ext:flex-col ext:gap-4">
+      <section class="notes-layout">
         <header class="notes-hero ext:rounded-[2rem] ext:p-5 md:ext:p-6">
-          <div class="ext:flex ext:flex-col ext:gap-5 xl:ext:flex-row xl:ext:items-end xl:ext:justify-between">
-            <div class="ext:max-w-3xl">
+          <div class="notes-hero__layout">
+            <div class="notes-hero__content ext:max-w-3xl">
               <div class="notes-hero__eyebrow">
                 <oc-icon name="sticky-note" fill-type="line" size="small" />
                 <span>{{ $gettext('Notes workspace') }}</span>
@@ -24,7 +24,7 @@
               </p>
             </div>
 
-            <div class="ext:w-full ext:max-w-md ext:self-start xl:ext:self-auto">
+            <div class="notes-hero__search">
               <oc-text-input
                 v-model="filterTerm"
                 :label="$gettext('Search notes')"
@@ -38,7 +38,7 @@
             </div>
           </div>
 
-          <div class="ext:mt-5 ext:flex ext:flex-wrap ext:gap-2">
+          <div class="notes-hero__stats ext:mt-5">
             <div class="notes-stat-chip">
               <span class="notes-stat-chip__value">{{ noteCount }}</span>
               <span>{{ $gettext('pages') }}</span>
@@ -54,15 +54,15 @@
           </div>
         </header>
 
-        <div class="notes-workspace ext:grid ext:min-h-0 ext:flex-1 ext:gap-4 xl:ext:grid-cols-[24rem_minmax(0,1fr)]">
-          <oc-card class="notes-panel bg-role-surface-container ext:border ext:min-h-0 ext:overflow-hidden">
+        <div class="notes-workspace">
+          <oc-card class="notes-panel notes-panel--sidebar bg-role-surface-container ext:border">
             <TocWrapper class="ext:h-full" :filter-term="filterTerm" />
           </oc-card>
 
-          <oc-card class="notes-panel bg-role-surface-container ext:border ext:min-h-0 ext:overflow-hidden">
-            <div class="notes-editor ext:flex ext:h-full ext:flex-col">
+          <oc-card class="notes-panel notes-panel--editor bg-role-surface-container ext:border">
+            <div class="notes-editor">
               <div class="notes-editor__header ext:px-5 ext:py-4 md:ext:px-6">
-                <div class="ext:flex ext:flex-col ext:gap-4 md:ext:flex-row md:ext:items-start md:ext:justify-between">
+                <div class="notes-editor__header-layout">
                   <div class="ext:min-w-0">
                     <p class="notes-editor__eyebrow ext:mb-2">{{ $gettext('Current page') }}</p>
                     <h2 class="ext:my-0 ext:truncate ext:text-2xl">{{ documentTitle }}</h2>
@@ -279,9 +279,18 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .notes-shell {
+  min-height: 100%;
+  overflow: auto;
   background:
     radial-gradient(circle at top left, rgba(244, 187, 68, 0.14), transparent 28%),
     linear-gradient(180deg, rgba(15, 23, 42, 0.03), transparent 34%);
+}
+
+.notes-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 100%;
 }
 
 .notes-hero,
@@ -294,6 +303,16 @@ onBeforeUnmount(() => {
     linear-gradient(135deg, rgba(244, 187, 68, 0.16), rgba(37, 99, 235, 0.05) 42%, transparent 72%),
     var(--oc-color-role-surface-container, #ffffff);
   border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
+}
+
+.notes-hero__layout {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.notes-hero__search {
+  width: 100%;
+  max-width: 32rem;
 }
 
 .notes-hero__eyebrow,
@@ -318,6 +337,39 @@ onBeforeUnmount(() => {
 .notes-editor__subcopy,
 .notes-editor__eyebrow {
   color: var(--oc-color-role-on-surface-variant, rgba(15, 23, 42, 0.7));
+}
+
+.notes-hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.notes-workspace {
+  display: grid;
+  gap: 1rem;
+  align-items: start;
+}
+
+.notes-panel {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.notes-panel--sidebar {
+  max-height: min(32rem, 48vh);
+}
+
+.notes-panel--editor {
+  min-height: clamp(20rem, 44vh, 34rem);
+}
+
+.notes-editor {
+  display: flex;
+  height: 100%;
+  min-height: inherit;
+  flex-direction: column;
 }
 
 .notes-stat-chip {
@@ -345,9 +397,47 @@ onBeforeUnmount(() => {
   text-transform: uppercase;
 }
 
+.notes-editor__header-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .notes-status-pill {
   padding: 0.5rem 0.8rem;
   font-size: 0.82rem;
   font-weight: 700;
+}
+
+@media (min-width: 48rem) {
+  .notes-editor__header-layout {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 64rem) {
+  .notes-layout {
+    height: 100%;
+  }
+
+  .notes-hero__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 24rem);
+    align-items: end;
+  }
+
+  .notes-workspace {
+    flex: 1 1 auto;
+    min-height: 0;
+    grid-template-columns: minmax(20rem, 24rem) minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .notes-panel--sidebar,
+  .notes-panel--editor {
+    max-height: none;
+    min-height: 0;
+  }
 }
 </style>

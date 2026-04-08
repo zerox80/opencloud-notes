@@ -1,7 +1,7 @@
 <template>
-  <main class="notes-overview ext:h-full ext:overflow-auto ext:p-4 md:ext:p-6">
+  <main class="notes-overview ext:min-h-full ext:overflow-auto ext:p-4 md:ext:p-6">
     <section class="notes-overview__hero ext:mx-auto ext:max-w-6xl ext:rounded-[2rem] ext:p-6 md:ext:p-8">
-      <div class="ext:grid ext:gap-6 xl:ext:grid-cols-[minmax(0,1.2fr)_22rem] xl:ext:items-start">
+      <div class="notes-overview__hero-layout">
         <div>
           <div class="notes-overview__eyebrow">
             <oc-icon name="sticky-note" fill-type="line" size="small" />
@@ -48,7 +48,7 @@
       </div>
     </section>
 
-    <section class="ext:mx-auto ext:mt-6 ext:grid ext:max-w-6xl ext:gap-4 md:ext:grid-cols-3">
+    <section class="notes-overview__grid ext:mx-auto ext:max-w-6xl">
       <oc-card class="notes-overview__card bg-role-surface-container ext:border">
         <oc-icon name="book-open" fill-type="line" size="large" color="var(--oc-color-icon-notes)" />
         <h3 class="ext:mb-2 ext:mt-4">{{ $gettext('Structured notebooks') }}</h3>
@@ -99,9 +99,15 @@ const { $gettext } = useGettext()
 
 <style scoped>
 .notes-overview {
+  min-height: 100%;
   background:
     radial-gradient(circle at top left, rgba(244, 187, 68, 0.16), transparent 34%),
     linear-gradient(180deg, rgba(15, 23, 42, 0.02), transparent 36%);
+}
+
+.notes-overview__hero-layout {
+  display: grid;
+  gap: 1.5rem;
 }
 
 .notes-overview__hero {
@@ -163,5 +169,24 @@ const { $gettext } = useGettext()
 
 .notes-overview__stack-copy {
   font-weight: 600;
+}
+
+.notes-overview__grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 48rem) {
+  .notes-overview__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .notes-overview__hero-layout {
+    grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 22rem);
+    align-items: start;
+  }
 }
 </style>
