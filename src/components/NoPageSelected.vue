@@ -65,8 +65,8 @@ const message = computed(() => {
   border-radius: 1.6rem;
   border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
   background:
-    linear-gradient(135deg, rgb(from var(--oc-color-icon-notes, #f4bb44) r g b / 12%), rgb(from var(--oc-color-role-primary, #2563eb) r g b / 4%) 55%, transparent),
-    var(--oc-color-role-surface, transparent);
+    linear-gradient(135deg, rgba(244, 187, 68, 0.12), rgba(37, 99, 235, 0.04) 55%, transparent),
+    var(--oc-color-role-surface-container, var(--oc-color-role-surface, transparent));
 }
 
 .notes-empty__icon {
@@ -76,11 +76,11 @@ const message = computed(() => {
   width: 4rem;
   height: 4rem;
   border-radius: 1.2rem;
-  background: rgb(from var(--oc-color-icon-notes, #f4bb44) r g b / 16%);
+  background: rgba(244, 187, 68, 0.16);
   color: var(--oc-color-icon-notes);
 }
 
 .notes-empty__copy {
-  color: var(--oc-color-role-on-surface-variant, rgb(from var(--oc-color-role-on-surface, #0f172a) r g b / 70%));
+  color: var(--oc-color-role-on-surface-variant, rgba(15, 23, 42, 0.7));
 }
 </style>

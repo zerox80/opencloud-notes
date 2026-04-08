@@ -101,8 +101,8 @@ const { $gettext } = useGettext()
 .notes-overview {
   min-height: 100%;
   background:
-    radial-gradient(circle at top left, rgb(from var(--oc-color-icon-notes, #f4bb44) r g b / 16%), transparent 34%),
-    linear-gradient(180deg, rgb(from var(--oc-color-role-on-surface, #0f172a) r g b / 2%), transparent 36%);
+    radial-gradient(circle at top left, rgba(244, 187, 68, 0.16), transparent 34%),
+    linear-gradient(180deg, rgba(15, 23, 42, 0.02), transparent 36%);
 }
 
 .notes-overview__hero-layout {
@@ -113,8 +113,8 @@ const { $gettext } = useGettext()
 .notes-overview__hero {
   border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
   background:
-    linear-gradient(135deg, rgb(from var(--oc-color-icon-notes, #f4bb44) r g b / 8%), rgb(from var(--oc-color-role-primary, #2563eb) r g b / 4%) 45%, transparent 72%),
-    var(--oc-color-role-surface, transparent);
+    linear-gradient(135deg, rgba(244, 187, 68, 0.08), rgba(37, 99, 235, 0.04) 45%, transparent 72%),
+    var(--oc-color-role-surface-container, var(--oc-color-role-surface, transparent));
 }
 
 .notes-overview__eyebrow {
@@ -131,7 +131,7 @@ const { $gettext } = useGettext()
 
 .notes-overview__lede,
 .notes-overview__muted {
-  color: var(--oc-color-role-on-surface-variant, rgb(from var(--oc-color-role-on-surface, #0f172a) r g b / 70%));
+  color: var(--oc-color-role-on-surface-variant, rgba(15, 23, 42, 0.7));
 }
 
 .notes-overview__aside,

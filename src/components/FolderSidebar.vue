@@ -102,12 +102,12 @@ const folderNodes = computed(() => filterFoldersTree(tocNodes.value || []))
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--oc-color-role-on-surface-variant, rgb(from var(--oc-color-role-on-surface, #0f172a) r g b / 70%));
+  color: var(--oc-color-role-on-surface-variant, rgba(15, 23, 42, 0.7));
 }
 
 .notes-sidebar__copy {
   font-size: 0.85rem;
-  color: var(--oc-color-role-on-surface-variant, rgb(from var(--oc-color-role-on-surface, #0f172a) r g b / 70%));
+  color: var(--oc-color-role-on-surface-variant, rgba(15, 23, 42, 0.7));
 }
 
 .notes-root-dropzone {
@@ -118,12 +118,12 @@ const folderNodes = computed(() => filterFoldersTree(tocNodes.value || []))
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--oc-color-role-on-surface-variant, rgb(from var(--oc-color-role-on-surface, #0f172a) r g b / 70%));
+  color: var(--oc-color-role-on-surface-variant, rgba(15, 23, 42, 0.7));
   transition: all 120ms ease;
 }
 
 .notes-root-dropzone--active {
   border-color: var(--oc-color-role-primary, #2563eb);
-  background: rgb(from var(--oc-color-role-primary, #2563eb) r g b / 5%);
+  background: rgba(37, 99, 235, 0.05);
 }
 </style>

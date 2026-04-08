@@ -42,11 +42,11 @@ const { hasWriteAccess } = storeToRefs(notebookStore)
   width: 3.75rem;
   height: 3.75rem;
   border-radius: 1.1rem;
-  background: rgb(from var(--oc-color-icon-notes, #f4bb44) r g b / 16%);
+  background: rgba(244, 187, 68, 0.16);
   color: var(--oc-color-icon-notes);
 }
 
 .notes-empty-state__copy {
-  color: var(--oc-color-role-on-surface-variant, rgb(from var(--oc-color-role-on-surface, #0f172a) r g b / 70%));
+  color: var(--oc-color-role-on-surface-variant, rgba(15, 23, 42, 0.7));
 }
 </style>
