@@ -287,8 +287,8 @@ onBeforeUnmount(() => {
   min-height: 100%;
   overflow: auto;
   background:
-    radial-gradient(circle at top left, rgba(244, 187, 68, 0.14), transparent 28%),
-    linear-gradient(180deg, rgba(15, 23, 42, 0.03), transparent 34%);
+    radial-gradient(circle at top left, color-mix(in srgb, var(--oc-color-icon-notes, #f4bb44) 14%, transparent), transparent 28%),
+    linear-gradient(180deg, color-mix(in srgb, var(--oc-color-role-on-surface, #0f172a) 3%, transparent), transparent 34%);
 }
 
 .notes-layout {
@@ -305,8 +305,8 @@ onBeforeUnmount(() => {
 
 .notes-hero {
   background:
-    linear-gradient(135deg, rgba(244, 187, 68, 0.08), rgba(37, 99, 235, 0.05) 42%, transparent 72%),
-    var(--oc-color-role-surface, transparent);
+    linear-gradient(135deg, color-mix(in srgb, var(--oc-color-icon-notes, #f4bb44) 8%, transparent), color-mix(in srgb, var(--oc-color-role-primary, #2563eb) 5%, transparent) 42%, transparent 72%),
+    var(--oc-color-role-surface);
   border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
 }
 
@@ -328,7 +328,7 @@ onBeforeUnmount(() => {
   gap: 0.55rem;
   border-radius: 999px;
   border: 1px solid var(--oc-color-role-outline-variant, #d7dde5);
-  background: var(--oc-color-role-surface-container, var(--oc-color-interaction-hover, rgba(128, 128, 128, 0.1)));
+  background: var(--oc-color-role-surface-container, var(--oc-color-interaction-hover));
 }
 
 .notes-hero__eyebrow {

@@ -1,3 +1,4 @@
+import './index.css'
 import '@opencloud-eu/extension-sdk/tailwind.css'
 import {
   defineWebApplication,
